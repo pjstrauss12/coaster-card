@@ -94,13 +94,6 @@ class CoasterCard extends LitElement {
     <p>Opening in 2018 at Cedar Point in Sandusky, Ohio, Steel Vengeance has quickly became a fan favorite.  Rocky Mountain Construction, a company that retracks old wooden roller coasters, came in to revamp Mean Streak and made it a hybrid roller coaster.  This means it has a wood structure, but the trains run along a steel track.  This allows for a better experience overall and increases the lifespan of older wooden roller coasters.  The ride is 205 feet tall with a 200 foot drop at 90 degrees and it flips you upside down four times.  The top speed of Steel Vengeance is 74 miles per hour and the total ride time is 2 minutes and 30 seconds.  Learn more about the ride by clicking below.</p>
     <button class="details" v-on:click="showhide">Details</button>
   </div>
-  <button class="add" v-on:click="duplicator">Make a duplicate</button>
-
-  <button class="toggle" v-on:click="backColorChange">Background Color</button>
-
-  <button class="word" v-on:click="words">Words</button>
-
-  <button class="del" v-on:click="deleter">Remove Last</button>
 
     `;
   }

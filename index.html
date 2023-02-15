@@ -20,6 +20,14 @@
 </head>
 
 <body>
+  <div class="buttons">
+    <button class="add" v-on:click="duplicator">Make a duplicate</button>
+  <button class="toggle" v-on:click="backColorChange">Background Color</button>
+
+  <button class="word" v-on:click="words">Words</button>
+
+  <button class="del" v-on:click="deleter">Remove Last</button>
+  </div>
   <coaster-card></coaster-card>
 
   <script type="module" src="./src/coaster-card.js"></script>
