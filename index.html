@@ -21,16 +21,56 @@
 
 <body>
   <div class="buttons">
-    <button class="add" v-on:click="duplicator">Make a duplicate</button>
-  <button class="toggle" v-on:click="backColorChange">Background Color</button>
-
-  <button class="word" v-on:click="words">Words</button>
-
-  <button class="del" v-on:click="deleter">Remove Last</button>
+    <button class="add">Make a duplicate</button>
+    <button class="toggle">Background Color</button>
+    <button class="word">Words</button>
+    <button class="del">Remove Last</button>
+    <button class="detail">toggle details</buttton>
   </div>
+  <div id="things">
   <coaster-card></coaster-card>
-
+  </div>
   <script type="module" src="./src/coaster-card.js"></script>
+  <script>
+    document.querySelector('.detail').addEventListener('click', function(e){
+      const details = document.querySelector('coaster-card').shadowRoot.querySelector('details');
+      if (details.getAttribute('open')) {
+        details.removeAttribute('open');
+      }
+      else {
+        details.setAttribute('open','open');    
+     }
+    });
+    document.querySelector('.add').addEventListener('click', function(e) {
+      const itemToClone = document.querySelector('coaster-card').cloneNode();
+      document.querySelector('#things').appendChild(itemToClone);
+    });
+    document.querySelector('.word').addEventListener('click', function(e) {
+      let rideName = prompt("Name that coaster!");
+      if (rideName) {
+        document.querySelector('coaster-card').name = rideName;
+      }
+    });
+    document.querySelector('.toggle').addEventListener('click', function(e) {
+      const colors = document.querySelector('coaster-card').shadowRoot.querySelector(".fullcard");
+      if (colors.style.backgroundColor === "black"){
+        colors.style.backgroundColor = "blue";
+      }else{
+        colors.style.backgroundColor = "black";
+      }
+    });
+    document.querySelector('.del').addEventListener('click', function(e) {
+      if (document.querySelector('#things :last-child') !== document.querySelector('coaster-card')) {
+        document.querySelector('#things :last-child').remove();      
+      }
+      else {
+        alert("Long live the coaster wars");
+      }
+    });
+
+
+
+  </script>
 </body>
 
 </html>
