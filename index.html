@@ -28,7 +28,14 @@
     <button class="detail">toggle details</buttton>
   </div>
   <div id="things">
-  <coaster-card></coaster-card>
+    <meme-maker image-url="${this.imgurl}" top-text="steve"></meme-maker>
+    <coaster-card>
+      <ul>
+        <li>Steel Vengeance is the best roller coaster</li>
+        <li>Iron Gwazi is not as good</li>
+        </ul>
+
+    </coaster-card>
   </div>
   <script type="module" src="./src/coaster-card.js"></script>
   <script>
@@ -60,8 +67,8 @@
       }
     });
     document.querySelector('.del').addEventListener('click', function(e) {
-      if (document.querySelector('#things :last-child') !== document.querySelector('coaster-card')) {
-        document.querySelector('#things :last-child').remove();      
+      if (document.querySelector('#things coaster-card:last-child') !== document.querySelector('coaster-card')) {
+        document.querySelector('#things coaster-card:last-child').remove();      
       }
       else {
         alert("Long live the coaster wars");

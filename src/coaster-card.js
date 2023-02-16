@@ -1,30 +1,37 @@
 import { LitElement, html, css } from 'lit';
+import "@lrnwebcomponents/meme-maker/meme-maker.js";
 
 const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 
 class CoasterCard extends LitElement {
   static properties = {
-    header: { type: String },
+    header: { 
+      type: String,
+      reflect: true
+    },
     name: {type: String},
-    description: {type: String}
+    imgurl: {type: String},
+    top: {type: String},
+    bottom: {type: String}
   }
 
   static styles = css`
     .fullcard {
       border: 5px solid;
-      text-align: center;
       color: white;
       margin: 12px;
 
       background-color: black;
       padding: 16px;
-  }
+    }
+    h1{
+      text-align: center;
+    }
     p{
       display: none;
     }
     img {
-      max-width: 75%;
-      max-height: 75%;
+      max-width: 400px;
       margin: auto;
       display: block;
       padding: 16px, 16px;
@@ -87,15 +94,20 @@ class CoasterCard extends LitElement {
     super();
     this.header = 'My app';
     this.name = 'Steel Vengeance';
-    this.description = 'This can be changed to fit the ride';
+    this.imgurl = 'https://www.gannett-cdn.com/-mm-/c866a26832d9a00c13d83ca470f7860c9325bbed/c=0-18-2099-1204/local/-/media/2017/08/16/DetroitFreeP/DetroitFreePress/636384989754521386-SteelVengence-07.JPG';
+    this.top = 'This is a roller coaster';
+    this.bottom = 'It can be changed';
   }
 
   render() {
     return html`
       <div class="fullcard">
         <h1>${this.name}</h1>
-        <img src="https://www.gannett-cdn.com/-mm-/c866a26832d9a00c13d83ca470f7860c9325bbed/c=0-18-2099-1204/local/-/media/2017/08/16/DetroitFreeP/DetroitFreePress/636384989754521386-SteelVengence-07.JPG">
-        <details class="details">${this.description}</details>
+        <meme-maker image-url="${this.imgurl}" top-text="${this.top}" bottom-text="${this.bottom}"></meme-maker>
+        <details class="details">
+          <slot>
+          </slot>
+        </details>
       </div>
 
     `;
