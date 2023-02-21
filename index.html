@@ -28,7 +28,7 @@
     <button class="detail">toggle details</buttton>
   </div>
   <div id="things">
-    <meme-maker image-url="${this.imgurl}" top-text="steve"></meme-maker>
+    <meme-maker></meme-maker>
     <coaster-card>
       <ul>
         <li>Steel Vengeance is the best roller coaster</li>
@@ -55,15 +55,22 @@
     document.querySelector('.word').addEventListener('click', function(e) {
       let rideName = prompt("Name that coaster!");
       if (rideName) {
-        document.querySelector('coaster-card').name = rideName;
+        document.querySelectorAll('coaster-card').forEach((item) =>{
+          item.name = rideName;
+        })
       }
     });
     document.querySelector('.toggle').addEventListener('click', function(e) {
-      const colors = document.querySelector('coaster-card').shadowRoot.querySelector(".fullcard");
-      if (colors.style.backgroundColor === "black"){
-        colors.style.backgroundColor = "blue";
-      }else{
-        colors.style.backgroundColor = "black";
+      let card = document.querySelector('coaster-card');
+      if (card.colors){
+        document.querySelectorAll('coaster-card').forEach((item) =>{
+          item.colors = false;
+        })
+        
+      } else {
+        document.querySelectorAll('coaster-card').forEach((item) =>{
+          item.colors = true;
+        })
       }
     });
     document.querySelector('.del').addEventListener('click', function(e) {

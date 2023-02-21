@@ -12,15 +12,18 @@ class CoasterCard extends LitElement {
     name: {type: String},
     imgurl: {type: String},
     top: {type: String},
-    bottom: {type: String}
+    bottom: {type: String},
+    colors: {type: Boolean, reflect: true}
   }
 
   static styles = css`
+    :host([colors]) .fullcard{
+      background-color: blue;
+    }
     .fullcard {
       border: 5px solid;
       color: white;
       margin: 12px;
-
       background-color: black;
       padding: 16px;
     }
@@ -90,11 +93,15 @@ class CoasterCard extends LitElement {
     }
   `;
 
+  static get styles(){
+
+  }
+
   constructor() {
     super();
     this.header = 'My app';
     this.name = 'Steel Vengeance';
-    this.imgurl = 'https://www.gannett-cdn.com/-mm-/c866a26832d9a00c13d83ca470f7860c9325bbed/c=0-18-2099-1204/local/-/media/2017/08/16/DetroitFreeP/DetroitFreePress/636384989754521386-SteelVengence-07.JPG';
+    this.imgurl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Steel_Vengeance_Drop_View.jpg/250px-Steel_Vengeance_Drop_View.jpg';
     this.top = 'This is a roller coaster';
     this.bottom = 'It can be changed';
   }
