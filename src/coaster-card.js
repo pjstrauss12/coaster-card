@@ -23,6 +23,7 @@ class CoasterCard extends LitElement {
       margin: 12px;
       background-color: black;
       padding: 16px;
+      max-width: 400px;
     }
     h1{
       text-align: center;
@@ -49,7 +50,7 @@ class CoasterCard extends LitElement {
       color: blue;
       background-color: orange;
       text-transform: uppercase;
-      display: none;
+      display: inline-block;
       margin: 8px;
     }
     .add {
@@ -79,13 +80,13 @@ class CoasterCard extends LitElement {
       button{
         display: inline-block;
       }
-      .details{
-        display: inline-block;
-      }
     }
     @media (max-width: 500px) {
       div{
         font-size: 10px;
+      }
+      .details{
+        display: none;
       }
     }
   `;
