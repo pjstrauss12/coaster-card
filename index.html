@@ -27,7 +27,7 @@
     <button class="del">Remove Last</button>
     <button class="detail">toggle details</buttton>
   </div>
-  <div id="things">
+  <div id="card">
     <meme-maker></meme-maker>
     <coaster-card>
       <ul>
@@ -50,7 +50,7 @@
     });
     document.querySelector('.add').addEventListener('click', function(e) {
       const itemToClone = document.querySelector('coaster-card').cloneNode();
-      document.querySelector('#things').appendChild(itemToClone);
+      document.querySelector('#card').appendChild(itemToClone);
     });
     document.querySelector('.word').addEventListener('click', function(e) {
       let rideName = prompt("Name that coaster!");
@@ -74,8 +74,8 @@
       }
     });
     document.querySelector('.del').addEventListener('click', function(e) {
-      if (document.querySelector('#things coaster-card:last-child') !== document.querySelector('coaster-card')) {
-        document.querySelector('#things coaster-card:last-child').remove();      
+      if (document.querySelector('#card coaster-card:last-child') !== document.querySelector('coaster-card')) {
+        document.querySelector('#card coaster-card:last-child').remove();      
       }
       else {
         alert("Long live the coaster wars");
