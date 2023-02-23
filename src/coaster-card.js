@@ -49,7 +49,6 @@ class CoasterCard extends LitElement {
       padding: 8px 8px;
       color: blue;
       background-color: orange;
-      text-transform: uppercase;
       display: inline-block;
       margin: 8px;
     }
@@ -102,9 +101,12 @@ class CoasterCard extends LitElement {
 
   render() {
     return html`
-      <div class="fullcard">
+      <div class="fullcard" part="testing">
         <h1>${this.name}</h1>
-        <meme-maker image-url="${this.imgurl}" top-text="${this.top}" bottom-text="${this.bottom}"></meme-maker>
+        <meme-maker 
+        image-url="${this.imgurl}" 
+        top-text="${this.top}" 
+        bottom-text="${this.bottom}"></meme-maker>
         <details class="details">
           <slot>
           </slot>
