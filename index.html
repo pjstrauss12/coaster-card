@@ -32,7 +32,7 @@
   </div>
   <div id="card">
     <meme-maker></meme-maker>
-    <coaster-card>
+    <coaster-card opened>
       <ul>
         <li>Steel Vengeance is the best roller coaster</li>
         <li>Iron Gwazi is not as good</li>
@@ -42,14 +42,12 @@
   </div>
   <script type="module" src="./src/coaster-card.js"></script>
   <script>
-    document.querySelector('.detail').addEventListener('click', function(e){
-      const details = document.querySelector('coaster-card').shadowRoot.querySelector('details');
-      if (details.getAttribute('open')) {
-        details.removeAttribute('open');
-      }
-      else {
-        details.setAttribute('open','open');    
-     }
+    document.body.addEventListener('opened-changed', (e) =>{
+      document.querySelector('.detail').innerText = e.detail.value ? 'Hide Details' : "Show Details";
+    });
+    document.querySelector('.detail').addEventListener('click', (e) => {
+      const card = document.querySelector('coaster-card');
+      card.opened = !card.opened;
     });
     document.querySelector('.add').addEventListener('click', function(e) {
       const itemToClone = document.querySelector('coaster-card').cloneNode();

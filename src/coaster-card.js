@@ -10,7 +10,8 @@ class CoasterCard extends LitElement {
     imgurl: {type: String},
     top: {type: String},
     bottom: {type: String},
-    colors: {type: Boolean, reflect: true}
+    colors: {type: Boolean, reflect: true},
+    opened: {type: Boolean, reflect: true}
   }
 
   static styles = css`
@@ -89,6 +90,7 @@ class CoasterCard extends LitElement {
       }
     }
   `;
+  
 
   constructor() {
     super();
@@ -97,8 +99,32 @@ class CoasterCard extends LitElement {
     this.imgurl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Steel_Vengeance_Drop_View.jpg/250px-Steel_Vengeance_Drop_View.jpg';
     this.top = 'This is a roller coaster';
     this.bottom = 'It can be changed';
+    this.opened = false;
   }
 
+  toggleEvent(e){
+    const state = this.shadowRoot.querySelector('details').getAttribute('open') === '' ? true : false;
+    this.opened = state;
+
+  }
+
+  updated(changedProperties){
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'opened') {
+        this.dispatchEvent(new CustomEvent('opened-changed',
+        {
+          composed: true,
+          bubbles: true,
+          cancelable: false,
+          detail: {
+            value: this[propName]
+          }
+        }));
+      }
+    });
+  };
+  
+  
   render() {
     return html`
       <div class="fullcard" part="testing">
@@ -107,7 +133,8 @@ class CoasterCard extends LitElement {
         image-url="${this.imgurl}" 
         top-text="${this.top}" 
         bottom-text="${this.bottom}"></meme-maker>
-        <details class="details">
+        <details class="details" .open="${this.opened}" @toggle="${this.toggleEvent}">
+          <summary>Click to see more</summary>
           <slot>
           </slot>
         </details>
