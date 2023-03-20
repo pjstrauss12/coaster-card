@@ -23,6 +23,7 @@
 </head>
 
 <body>
+  <coaster-collection></coaster-collection>
   <div class="buttons">
     <button class="add">Make a duplicate</button>
     <button class="toggle">Background Color</button>
@@ -40,7 +41,10 @@
 
     </coaster-card>
   </div>
-  <script type="module" src="./src/coaster-card.js"></script>
+  <script type="module">
+    import "./src/coaster-card.js";
+    import "./src/coaster-collection.js";
+  </script>
   <script>
     document.body.addEventListener('opened-changed', (e) =>{
       document.querySelector('.detail').innerText = e.detail.value ? 'Hide Details' : "Show Details";
