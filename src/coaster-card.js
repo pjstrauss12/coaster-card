@@ -127,7 +127,7 @@ class CoasterCard extends LitElement {
   
   render() {
     return html`
-      <div class="fullcard" part="testing">
+      <div class="fullcard" part="spacing">
         <h1>${this.name}</h1>
         <meme-maker 
         image-url="${this.imgurl}" 
