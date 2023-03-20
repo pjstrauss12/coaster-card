@@ -16,11 +16,11 @@ export class CoasterCollection extends LitElement {
         super();
         this.rides = [];
         this.park = 'Cedar Point';
-        this.updateRoster();
+        this.updatePark();
     }
 
-    updateRoster() {
-        const address = new URL('../api/park.js', import.meta.url).href;
+    updatePark(){
+        const address = '../api/park';
         fetch(address).then((response) => {
             if (response.ok) {
                 return response.json()

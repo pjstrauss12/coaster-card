@@ -1,6 +1,6 @@
 export default async function handler(request, res) {
 
-    const rides = [
+    const park = [
         {
             "name": "Steel Vengeance",
             "imgurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Steel_Vengeance_Drop_View.jpg/250px-Steel_Vengeance_Drop_View.jpg",
@@ -37,5 +37,5 @@ export default async function handler(request, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
     res.setHeader("Access-Control-Allow-Headers", "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version");
-    res.json(rides);
+    res.json(park);
   }
